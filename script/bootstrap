@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+function bootstrap {
+  local shome="$(unset CDPATH; cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  local url_node='https://nodejs.org/dist/latest/node-v4.0.0.pkg'
+
+  case "$(uname -s)" in
+    Darwin)
+     local tmp_node="$(mktemp -t XXXXXX.pkg)"
+     #trap "$(printf "rm -f '%q'" "$tmp_node")" EXIT
+     curl -L -sS -o "$tmp_node" "$url_node"
+     mv "$tmp_node" "$tmp_node.pkg"
+     sudo installer -package "$tmp_node.pkg" -target "/Volumes/Macintosh HD"
+     ;;
+  esac
+}
+
+bootstrap
