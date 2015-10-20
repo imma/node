@@ -4,7 +4,7 @@ function bootstrap {
   local shome="$(unset CDPATH; cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
   source "$shome/script/profile"
 
-  app compile pkg 'https://nodejs.org/dist/latest/node-v4.0.0.pkg'
+  app compile pkg 'https://nodejs.org/dist/latest/node-v4.2.1.pkg'
 }
 
 bootstrap
