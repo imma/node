@@ -4,7 +4,18 @@ function bootstrap {
   local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
   source "$shome/script/profile"
 
-  app compile pkg 'https://nodejs.org/dist/latest/node-v4.2.1.pkg'
+  case "$(uname -s)" in
+    Darwin)
+      app compile pkg 'https://nodejs.org/dist/latest/node-v4.2.1.pkg'
+      ;;
+    Linux)
+      echo deb https://deb.nodesource.com/node_0.10 trusty main | sudo tee /etc/apt/sources.list.d/node.list
+      curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
+      sudo aptitude update
+      sudo aptitude install -y nodejs
+      ;;
+  esac
 }
 
 bootstrap
+
