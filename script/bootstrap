@@ -10,7 +10,7 @@ function bootstrap {
       ;;
     Linux)
       echo deb https://deb.nodesource.com/node_0.10 trusty main | sudo tee /etc/apt/sources.list.d/node.list
-      curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
+      curl -L -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
       sudo aptitude update
       sudo aptitude install -y nodejs
       ;;
