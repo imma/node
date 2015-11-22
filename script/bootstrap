@@ -4,18 +4,25 @@ function bootstrap {
   local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
   source "$shome/script/profile"
 
+  local url_node
+
   case "$(uname -s)" in
     Darwin)
-      app compile pkg 'https://nodejs.org/dist/latest/node-v4.2.1.pkg'
+      url_node='https://nodejs.org/dist/v4.2.2/node-v4.2.2-darwin-x64.tar.gz'
       ;;
-    Linux)
-      echo deb https://deb.nodesource.com/node_0.10 trusty main | sudo tee /etc/apt/sources.list.d/node.list
-      curl -L -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
-      sudo aptitude update
-      sudo aptitude install -y nodejs
+    *)
+      url_node='https://nodejs.org/dist/v4.2.2/node-v4.2.2-linux-x64.tar.gz'
       ;;
   esac
+
+  local tmp_node="$(mktemp -t XXXXXX)"
+  trap "$(printf "rm -f '%q'" "$tmp_node")" EXIT
+  curl -s -L -o "$tmp_node" "$url_node"
+  mkdir -p "$shome/vendor"
+  tar xvfz "$tmp_node" -C vendor
+  rm -f "$tmp_node"
+
+  (set +f; cd vendor; ln -nfs node-v4.2.2-* node)
 }
 
 bootstrap
-
