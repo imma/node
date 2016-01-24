@@ -11,7 +11,7 @@ function bootstrap {
       url_node='https://nodejs.org/dist/v5.5.0/node-v5.5.0-darwin-x64.tar.gz'
       ;;
     Linux)
-      url_node='https://nodejs.org/dist/v5.5.0/node-v5.5.0-linux-x64.tar.xz'
+      url_node='https://nodejs.org/dist/v5.5.0/node-v5.5.0-linux-x64.tar.gz'
       ;;
   esac
 
