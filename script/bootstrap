@@ -8,10 +8,10 @@ function bootstrap {
 
   case "$(uname -s)" in
     Darwin)
-      url_node='https://nodejs.org/dist/v4.2.2/node-v4.2.2-darwin-x64.tar.gz'
+      url_node='https://nodejs.org/dist/v5.5.0/node-v5.5.0-darwin-x64.tar.gz'
       ;;
-    *)
-      url_node='https://nodejs.org/dist/v4.2.2/node-v4.2.2-linux-x64.tar.gz'
+    Linux)
+      url_node='https://nodejs.org/dist/v5.5.0/node-v5.5.0-linux-x64.tar.xz'
       ;;
   esac
 
