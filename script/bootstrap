@@ -22,7 +22,7 @@ function bootstrap {
   tar xvfz "$tmp_node" -C vendor
   rm -f "$tmp_node"
 
-  (set +f; cd vendor; ln -nfs node-v4.2.2-* node)
+  (set +f; cd vendor; ln -nfs node-v5.5.0-* node)
 }
 
 bootstrap
