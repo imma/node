@@ -17,7 +17,7 @@ function bootstrap {
 
   local tmp_node="$(mktemp -t XXXXXX)"
   trap "$(printf "rm -f '%q'" "$tmp_node")" EXIT
-  curl -s -L -o "$tmp_node" "$url_node"
+  curl -sS -L -o "$tmp_node" "$url_node"
   mkdir -p "$shome/vendor"
   tar xvfz "$tmp_node" -C vendor
   rm -f "$tmp_node"
