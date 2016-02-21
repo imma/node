@@ -5,7 +5,6 @@ function bootstrap {
   source "$shome/script/profile"
 
   local url_node
-
   case "$(uname -s)" in
     Darwin)
       url_node='https://nodejs.org/dist/v5.5.0/node-v5.5.0-darwin-x64.tar.gz'
@@ -15,12 +14,10 @@ function bootstrap {
       ;;
   esac
 
-  local tmp_node="$(mktemp -t XXXXXX)"
-  trap "$(printf "rm -f '%q'" "$tmp_node")" EXIT
-  curl -sS -L -o "$tmp_node" "$url_node"
+  local fnm_node="$(basename "${!url_node}")"
+  cache curl "$fnm_node" "$url_node" -sS -L
   mkdir -p "$shome/vendor"
-  tar xvfz "$tmp_node" -C vendor
-  rm -f "$tmp_node"
+  tar xvfz "${BASEBOX_CACHE}/curl/$fnm_node" -C vendor
 
   (set +f; cd vendor; ln -nfs node-v5.5.0-* node)
 }
