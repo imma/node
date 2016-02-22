@@ -14,7 +14,7 @@ function bootstrap {
       ;;
   esac
 
-  local fnm_node="$(basename "${!url_node}")"
+  local fnm_node="$(basename "${url_node}")"
   cache curl "$fnm_node" "$url_node" -sS -L
   mkdir -p "$shome/vendor"
   tar xvfz "${BASEBOX_CACHE}/curl/$fnm_node" -C vendor
