@@ -4,13 +4,14 @@ function bootstrap {
   local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
   source "$shome/script/profile"
 
+  local ver_node="${NODE_VERSION:-5.7.1}"
   local url_node
   case "$(uname -s)" in
     Darwin)
-      url_node='https://nodejs.org/dist/v5.5.0/node-v5.5.0-darwin-x64.tar.gz'
+      url_node="https://nodejs.org/dist/v${ver_node}/node-v${ver_node}-darwin-x64.tar.gz"
       ;;
     Linux)
-      url_node='https://nodejs.org/dist/v5.5.0/node-v5.5.0-linux-x64.tar.gz'
+      url_node="https://nodejs.org/dist/v${ver_node}/node-v${ver_node}-linux-x64.tar.gz"
       ;;
   esac
 
@@ -19,7 +20,7 @@ function bootstrap {
   mkdir -p "$shome/vendor"
   tar xvfz "${BASEBOX_CACHE}/curl/$fnm_node" -C vendor
 
-  (set +f; cd vendor; ln -nfs node-v5.5.0-* node)
+  (set +f; cd vendor; ln -nfs node-v${ver_node}-* node)
 }
 
 bootstrap
