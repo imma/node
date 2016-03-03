@@ -21,6 +21,10 @@ function bootstrap {
   tar xvfz "${BASEBOX_CACHE}/curl/$fnm_node" -C vendor
 
   (set +f; cd vendor; ln -nfs node-v${ver_node}-* node)
+
+  if [[ -n "${NPM_VERSION:-}" ]]; then
+    npm install -g "${NPM_VERSION}"
+  fi
 }
 
 bootstrap
