@@ -1,3 +1,4 @@
 /vendor/node
 /vendor/node-v*
 /node_modules
+/npm-debug.log
