@@ -1,6 +1,7 @@
 {
   "require": [
     "build-essential",
-    "curl"
+    "curl",
+    "cache"
   ]
 }
