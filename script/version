@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+function node_version {
+  jq -n --arg name node --arg version "$(node --version 2>&- | perl -pe 's{^v}{}')" '{name: $name, version: $version}'
+}
+
+node_version "$@"
