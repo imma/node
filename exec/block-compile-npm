@@ -2,6 +2,7 @@
 
 function main {
   local phome="$1"; shift
+  shift; shift
 
   npm install "$@"
 }
