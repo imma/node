@@ -3,7 +3,7 @@
 function main {
   local phome="$1"; shift
 
-  npm install --no-optional
+  npm install
 }
 
 source sub "$0" "$@"
