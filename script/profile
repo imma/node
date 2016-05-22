@@ -3,8 +3,6 @@
 function profile {
   local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
   PATH="$shome/bin:$shome/exec:$shome/vendor/node/bin:$PATH"
-
-  #export npm_config_cache="${BASEBOX_CACHE}/cache/npm"
 }
 
 profile
