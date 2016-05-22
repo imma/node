@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+function main {
+  local phome="$1"; shift
+
+  npm install --no-optional
+}
+
+source sub "$0" "$@"
