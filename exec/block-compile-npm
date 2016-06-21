@@ -4,7 +4,7 @@ function main {
   local phome="$1"; shift
   shift; shift
 
-  export npm_config_registry=http://172.28.128.1:4873/
+  export npm_config_registry="http://${CACHE_VIP}:4873/"
   export npm_config_ca=null
   npm install "$@"
 }
