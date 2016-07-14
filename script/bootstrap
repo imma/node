@@ -6,7 +6,7 @@ function bootstrap {
 
   mkdir -p "${BASEBOX_CACHE}/cache/npm"
 
-  local ver_node="${NODE_VERSION:-4.4.5}"
+  local ver_node="${NODE_VERSION:-4.4.7}"
   local url_node
   case "$(uname -s)" in
     Darwin)
