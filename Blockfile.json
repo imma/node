@@ -2,6 +2,7 @@
   "require": [
     "build-essential",
     "curl",
-    "cache"
+    "cache",
+    "nodeenv"
   ]
 }
