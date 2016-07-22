@@ -4,29 +4,7 @@ function bootstrap {
   local shome="${_node_home:-"$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"}"
   source "$shome/script/profile"
 
-  mkdir -p "${BASEBOX_CACHE}/cache/npm"
-
-  local ver_node="${NODE_VERSION:-4.4.7}"
-  local url_node
-  case "$(uname -s)" in
-    Darwin)
-      url_node="https://nodejs.org/dist/v${ver_node}/node-v${ver_node}-darwin-x64.tar.gz"
-      ;;
-    Linux)
-      url_node="https://nodejs.org/dist/v${ver_node}/node-v${ver_node}-linux-x64.tar.gz"
-      ;;
-  esac
-
-  local fnm_node="$(basename "${url_node}")"
-  cache curl "$fnm_node" "$url_node"
-  mkdir -p "$shome/vendor"
-  tar xvfz "${BASEBOX_CACHE}/curl/$fnm_node" -C vendor
-
-  (set +f; cd vendor; ln -nfs node-v${ver_node}-* node)
-
-  if [[ -n "${NPM_VERSION:-}" ]]; then
-    npm install -g npm@"${NPM_VERSION}"
-  fi
+  "$shome/script/update"
 }
 
 bootstrap

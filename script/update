@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-t
-function profile {
+
+function bootstrap {
   local shome="${_node_home:-"$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"}"
-  PATH="$shome/exec:$PATH"
+  source "$shome/script/profile"
+
+  mkdir -p "${BASEBOX_CACHE}/cache/npm"
 }
 
-profile
+bootstrap
