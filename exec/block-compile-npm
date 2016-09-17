@@ -7,6 +7,7 @@ function main {
   export npm_config_registry="http://${CACHE_VIP}:4873/"
   export npm_config_ca=null
   npm install "$@"
+  npm cache clean 
 }
 
 source sub "$0" "$@"
