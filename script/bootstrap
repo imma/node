@@ -5,6 +5,8 @@ function bootstrap {
   source "$shome/script/profile"
 
   "$shome/script/update"
+
+  nodeenv --prebuilt --node="$NODE_VERSION" "$shome/vendor/nodeenv-${NODE_VERSION}"
 }
 
 bootstrap
