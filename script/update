@@ -3,8 +3,6 @@
 function bootstrap {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
-
-  mkdir -p "${BASEBOX_CACHE}/cache/npm"
 }
 
 bootstrap
