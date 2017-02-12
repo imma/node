@@ -1,6 +1,5 @@
 {
   "require": [
-    "build-essential",
     "curl",
     "cache",
     "nodeenv"
