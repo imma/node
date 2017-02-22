@@ -4,7 +4,7 @@ function main {
   local phome="$1"; shift
   shift; shift
 
-  npm install "$@"
+  yarn "$@"
 }
 
 source sub "$0" "$@"
