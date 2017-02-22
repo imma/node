@@ -8,7 +8,7 @@ function bootstrap {
   rm -rf "$shome/vendor/nodeenv-${NODE_VERSION}"
   nodeenv --prebuilt --node="$NODE_VERSION" "$shome/vendor/nodeenv-${NODE_VERSION}"
   block compile npm
-  (set +f; ln -nfs ../node_modules/.bin/yarn* "$shome/bin/")
+  (set +f; cd "$shome/bin" && ln -nfs ../node_modules/.bin/yarn* .)
 }
 
 bootstrap
