@@ -4,7 +4,7 @@ function _node_profile {
   local shome="${_node_home:-"$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"}"
   PATH="$shome/bin:$shome/exec:$PATH"
 
-  export NODE_VERSION="${NODE_VERSION:-6.9.5}"
+  export NODE_VERSION="${NODE_VERSION:-6.10.0}"
 
   if [[ -f "$shome/vendor/nodeenv-${NODE_VERSION}/bin/activate" ]]; then
     set +u
