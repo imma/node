@@ -5,7 +5,11 @@ function version {
   source "$shome/script/profile"
 
   local ver_node="$(node --version 2>/dev/null | awk '{print $1}' | perl -pe 's{^v}{}' || true)"
-  jq -n --arg node "$ver_node" '{node: $node}'
+  local ver_yarn="$(yarn --version 2>/dev/null || true)"
+  jq -n \
+    --arg node "$ver_node" \
+    --arg yarn "$ver_yarn" \
+    '{node: $node, yarn: $yarn}'
 }
 
 version "$@"

@@ -8,11 +8,11 @@ function main {
     return 1
   fi
 
-  if ! type -P yarn >/dev/null; then
+  if [[ "$($shome/script/version | jq -r '.yarn')" != "$YARN_VERSION" ]]; then
     return 1
   fi
 
   return 0
 }
 
-source sub "$0" "$@"
+main "$@"
