@@ -9,6 +9,7 @@ function _node_profile {
 
   if [[ -f "$shome/vendor/nodeenv-${NODE_VERSION}/bin/activate" ]]; then
     set +u
+    NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
     source "$shome/vendor/nodeenv-${NODE_VERSION}/bin/activate"
   fi
 }
