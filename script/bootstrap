@@ -6,13 +6,6 @@ function bootstrap {
 
   rm -rf "$shome/vendor/nodeenv-${NODE_VERSION}"
   nodeenv --prebuilt --node="$NODE_VERSION" "$shome/vendor/nodeenv-${NODE_VERSION}"
-
-  source "$shome/script/profile"
-
-  jq -n --arg version 0.23.1 '{private: true, devDependencies: { yarn: $version } }' > "$shome/package.json.$$"
-  mv -f "$shome/package.json.$$" "$shome/package.json"
-  block compile npm
-  (set +f; cd "$shome/bin" && ln -nfs ../node_modules/.bin/yarn* .)
 }
 
 bootstrap
