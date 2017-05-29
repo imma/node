@@ -10,6 +10,7 @@ function _node_profile {
     set +u
     NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
     source "$shome/vendor/nodeenv-${NODE_VERSION}/bin/activate"
+		unset _OLD_NODE_PATH _OLD_NODE_VIRTUAL_PATH _OLD_NODE_VIRTUAL_PS1 _OLD_NPM_CONFIG_PREFIX _OLD_npm_config_prefix
   fi
 }
 
