@@ -1,2 +1,2 @@
-/vendor/node*
+/vendor
 /npm-debug.log
