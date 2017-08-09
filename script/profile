@@ -5,14 +5,6 @@ function _node_profile {
   PATH="$shome/bin:$shome/exec:$PATH"
 
   export NODE_VERSION="6.11.2"
-
-  if [[ -f "$shome/vendor/nodeenv/bin/activate" ]]; then
-    set +u
-    export NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
-		unset _OLD_NODE_PATH _OLD_NODE_VIRTUAL_PATH _OLD_NODE_VIRTUAL_PS1 _OLD_NPM_CONFIG_PREFIX _OLD_npm_config_prefix
-    source "$shome/vendor/nodeenv/bin/activate"
-		unset _OLD_NODE_PATH _OLD_NODE_VIRTUAL_PATH _OLD_NODE_VIRTUAL_PS1 _OLD_NPM_CONFIG_PREFIX _OLD_npm_config_prefix
-  fi
 }
 
 _node_profile
