@@ -5,7 +5,7 @@ function bootstrap {
   source "$shome/script/profile"
 
   nvm install "${NODE_VERSION}"
-  echo "${NODE_VERSION}" > "${BOARD_PATH}/.nvmrc"
+  nvm alias default "${NODE_VERSION}"
 }
 
 bootstrap
