@@ -5,11 +5,6 @@ function _node_profile {
   PATH="$shome/bin:$shome/exec:$PATH"
 
   export NODE_VERSION="6.11.2"
-
-  if [[ -f "${BOARD_PATH}/.nvm/nvm.sh" ]]; then
-    source "${BOARD_PATH}/.nvm/nvm.sh" --no-use
-    nvm use --silent --delete-prefix "$NODE_VERSION"
-  fi
 }
 
 _node_profile
