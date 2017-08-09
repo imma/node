@@ -5,7 +5,7 @@ function bootstrap {
   source "$shome/script/profile"
 
   nvm install "${NODE_VERSION}"
-  nvm use --delete-prefix "v${NODE_VERSION}"
+  echo "${NODE_VERSION}" > "${BOARD_PATH}/.nvmrc"
 }
 
 bootstrap
