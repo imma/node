@@ -2,6 +2,6 @@
   "require": [
     "curl",
     "cache",
-    "nodeenv"
+    "nvm"
   ]
 }
