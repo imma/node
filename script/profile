@@ -3,8 +3,6 @@
 function _node_profile {
   local shome="${_node_home:="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"}"
   PATH="$shome/bin:$shome/exec:$PATH"
-
-  export NODE_VERSION="6.11.3"
 }
 
 _node_profile
