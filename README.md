@@ -1,1 +1,1 @@
-Visit http://defn.sh/node/ or open `docs/index.html`
+content/node.md
