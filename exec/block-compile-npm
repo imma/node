@@ -4,7 +4,20 @@ function main {
   local phome="$1"; shift
   shift; shift
 
+  cd "$phome"
+  local nm_block="${phome##*/}"
+
+  if [[ ! -L package-lock.json ]]; then
+    rsync -ia package-lock.json "${BOARD_PATH}/package-lock.json.${nm_block}" 2>/dev/null || true # TODO clean up
+  fi
+  ln -nfs "${BOARD_PATH}/package-lock.json.${nm_block}" "package-lock.json"
+
   npm install "$@"
+
+  if [[ ! -L package-lock.json ]]; then
+    rsync -ia package-lock.json "${BOARD_PATH}/package-lock.json.${nm_block}"
+  fi
+  ln -nfs "${BOARD_PATH}/package-lock.json.${nm_block}" "package-lock.json"
 }
 
 source sub "$0" "$@"
