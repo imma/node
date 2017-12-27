@@ -3,5 +3,6 @@
     "curl",
     "cache",
     "nvm"
-  ]
+  ],
+  "versions": {}
 }
